@@ -6,6 +6,7 @@ import authRoutes from './routes/auth';
 import groupRoutes from './routes/groups';
 import expenseRoutes from './routes/expenses';
 import settlementRoutes from './routes/settlements';
+import adminRoutes from './routes/admin';
 
 dotenv.config();
 
@@ -33,6 +34,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/groups', groupRoutes);
 app.use('/api/expenses', expenseRoutes);
 app.use('/api/settlements', settlementRoutes);
+app.use('/api/admin', adminRoutes);
 
 const PORT = Number(process.env.PORT || process.env.BACKEND_PORT) || 5000;
 const HOST = process.env.HOST || '0.0.0.0';
