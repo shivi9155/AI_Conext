@@ -10,9 +10,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: DATABASE_URL
-        fromDatabase:
-          name: fairshare-lite-db
-          property: connectionString
+        value: "<PASTE_INTERNAL_DATABASE_URL_HERE>"
       - key: JWT_SECRET
         generateValue: true
 
@@ -27,7 +25,7 @@ services:
       - key: NEXT_PUBLIC_API_URL
         value: https://fairshare-backend.onrender.com/api
 
-databases:
-  - name: fairshare-lite-db
-    plan: free
-    region: oregon
+# NOTE: Database creation removed because your Render account already has
+# an active free-tier database. After the blueprint deploys, open the
+# backend service on Render and set the `DATABASE_URL` env var to the
+# Internal Connection String of your existing Postgres (recommended).
