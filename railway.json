@@ -4,6 +4,7 @@
     "buildCommand": "cd backend && npm install --include=dev && npm run build"
   },
   "deploy": {
+    "preDeployCommand": "node backend/scripts/importExpenses.js || true",
     "startCommand": "cd backend && node dist/index.js"
   },
   "env": {
