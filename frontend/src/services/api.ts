@@ -19,6 +19,8 @@ export const authService = {
     api.post('/auth/register', { username, email, password }),
   login: (username: string, password: string) =>
     api.post('/auth/login', { username, password }),
+  demoLogin: (username = 'guest') =>
+    api.post('/auth/demo-login', { username }),
   renameUser: (userId: string, username: string) =>
     api.put(`/auth/users/${userId}`, { username }),
   deleteUser: (userId: string) =>

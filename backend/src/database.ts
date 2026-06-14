@@ -2,6 +2,9 @@ import pool from './db';
 
 export const initializeDatabase = async (): Promise<void> => {
   try {
+    // Ensure UUID generation support is available in Postgres
+    await pool.query(`CREATE EXTENSION IF NOT EXISTS "pgcrypto";`);
+
     // Users table
     await pool.query(`
       CREATE TABLE IF NOT EXISTS users (

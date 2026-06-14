@@ -45,10 +45,19 @@ export default function LoginRegisterPage() {
     }
   };
 
-  const handleGuestMode = () => {
-    localStorage.setItem('token', 'guest');
-    login({ userId: 'guest', username: 'Guest' });
-    router.push('/groups');
+  const handleGuestMode = async () => {
+    setError('');
+    setLoading(true);
+    try {
+      const response = await authService.demoLogin('guest');
+      localStorage.setItem('token', response.data.token);
+      login({ userId: response.data.userId, username: response.data.username });
+      router.push('/groups');
+    } catch (err: any) {
+      setError(err.response?.data?.error || 'Unable to start guest session');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
