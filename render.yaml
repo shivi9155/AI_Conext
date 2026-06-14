@@ -32,6 +32,5 @@ services:
 
 databases:
   - name: fairshare-lite-db
-    databaseEngine: postgres
     plan: starter
     region: oregon
