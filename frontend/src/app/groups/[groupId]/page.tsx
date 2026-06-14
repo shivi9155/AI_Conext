@@ -30,6 +30,7 @@ export default function GroupDetailPage() {
   const [members, setMembers] = useState<Member[]>([]);
   const [expenses, setExpenses] = useState<Expense[]>([]);
   const [balances, setBalances] = useState<Balance[]>([]);
+  const [balancesError, setBalancesError] = useState('');
   const [newMemberUsername, setNewMemberUsername] = useState('');
   const [commentDrafts, setCommentDrafts] = useState<{ [key: string]: string }>({});
   const [settlementDraft, setSettlementDraft] = useState({ fromUserId: '', toUserId: '', amount: '' });
@@ -55,11 +56,18 @@ export default function GroupDetailPage() {
       const groupResponse = await groupService.getById(groupId!);
       setMembers(groupResponse.data.members);
       setExpenses(groupResponse.data.expenses);
+    } catch (err: any) {
+      setError(err.response?.data?.error || 'Failed to load group data');
+      setLoading(false);
+      return;
+    }
 
+    try {
       const balancesResponse = await settlementService.getBalances(groupId!);
       setBalances(balancesResponse.data);
+      setBalancesError('');
     } catch (err: any) {
-      setError('Failed to load group data');
+      setBalancesError(err.response?.data?.error || 'Failed to load balances');
     } finally {
       setLoading(false);
     }
@@ -168,16 +176,20 @@ export default function GroupDetailPage() {
 
             <section className="panel">
               <h2 className="panel-header">Balances</h2>
-              <div className="list-view">
-                {balances.map((balance) => (
-                  <div key={balance.id} className="flex-between">
-                    <span className="font-bold">{balance.username}</span>
-                    <span className="font-bold">
-                      {formatAmount(balance.balance)}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              {balancesError ? (
+                <p className="text-red-400">{balancesError}</p>
+              ) : (
+                <div className="list-view">
+                  {balances.map((balance) => (
+                    <div key={balance.id} className="flex-between">
+                      <span className="font-bold">{balance.username}</span>
+                      <span className="font-bold">
+                        {formatAmount(balance.balance)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </section>
           </div>
 

@@ -12,19 +12,32 @@ router.get('/balances/:groupId', verifyToken, async (req: any, res: Response) =>
 
     // Calculate balances: who owes what to whom
     const result = await query(
-      `WITH user_balances AS (
-        SELECT u.id, u.username,
-          COALESCE(SUM(CASE WHEN e.paid_by = u.id THEN e.amount ELSE 0 END), 0) as total_paid,
-          COALESCE(SUM(es.amount), 0) as total_owed
-        FROM users u
-        JOIN group_members gm ON u.id = gm.user_id
-        LEFT JOIN expenses e ON e.group_id = $1 AND e.paid_by = u.id
-        LEFT JOIN expense_shares es ON e.id = es.expense_id AND es.user_id = u.id
-        WHERE gm.group_id = $1
-        GROUP BY u.id, u.username
-      )
-      SELECT id, username, (total_paid - total_owed) as balance
-      FROM user_balances`,
+      `WITH group_users AS (
+         SELECT u.id, u.username
+         FROM users u
+         JOIN group_members gm ON u.id = gm.user_id
+         WHERE gm.group_id = $1
+       ),
+       total_paid AS (
+         SELECT paid_by AS user_id, SUM(amount) AS amount
+         FROM expenses
+         WHERE group_id = $1
+         GROUP BY paid_by
+       ),
+       total_owed AS (
+         SELECT es.user_id, SUM(es.amount) AS amount
+         FROM expense_shares es
+         JOIN expenses e ON e.id = es.expense_id
+         WHERE e.group_id = $1
+         GROUP BY es.user_id
+       )
+       SELECT u.id, u.username,
+         COALESCE(tp.amount, 0) AS total_paid,
+         COALESCE(to_owed.amount, 0) AS total_owed,
+         COALESCE(tp.amount, 0) - COALESCE(to_owed.amount, 0) AS balance
+       FROM group_users u
+       LEFT JOIN total_paid tp ON tp.user_id = u.id
+       LEFT JOIN total_owed to_owed ON to_owed.user_id = u.id`,
       [groupId]
     );
 
