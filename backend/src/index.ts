@@ -20,14 +20,15 @@ app.use('/api/groups', groupRoutes);
 app.use('/api/expenses', expenseRoutes);
 app.use('/api/settlements', settlementRoutes);
 
-const PORT = process.env.PORT || process.env.BACKEND_PORT || 5000;
+const PORT = Number(process.env.PORT || process.env.BACKEND_PORT) || 5000;
+const HOST = process.env.HOST || '0.0.0.0';
 
 const startServer = async () => {
   try {
     await initializeDatabase();
     console.log('Database initialized');
 
-    app.listen(PORT, () => {
+    app.listen(PORT, HOST, () => {
       console.log(`Server running on http://localhost:${PORT}`);
     });
   } catch (error) {

@@ -5,6 +5,12 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { verifyToken } from '../middleware/auth';
 
+const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!JWT_SECRET) {
+  throw new Error('JWT_SECRET environment variable is required');
+}
+
 const router = Router();
 
 interface AuthRequest extends Request {
@@ -29,7 +35,7 @@ router.post('/register', async (req: Request, res: Response) => {
       [userId, username, email, hashedPassword]
     );
 
-    const token = jwt.sign({ userId, username }, process.env.JWT_SECRET || 'secret', {
+    const token = jwt.sign({ userId, username }, JWT_SECRET, {
       expiresIn: '7d',
     });
 
@@ -68,7 +74,7 @@ router.post('/login', async (req: Request, res: Response) => {
       return;
     }
 
-    const token = jwt.sign({ userId: user.id, username: user.username }, process.env.JWT_SECRET || 'secret', {
+    const token = jwt.sign({ userId: user.id, username: user.username }, JWT_SECRET, {
       expiresIn: '7d',
     });
 
