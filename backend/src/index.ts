@@ -15,6 +15,20 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
+app.get('/', (_req, res) => {
+  res.json({
+    status: 'ok',
+    message: 'FairShare Lite backend is running',
+  });
+});
+
+app.get('/api', (_req, res) => {
+  res.json({
+    status: 'ok',
+    message: 'FairShare Lite API is available at /api/*',
+  });
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/groups', groupRoutes);
 app.use('/api/expenses', expenseRoutes);
@@ -29,7 +43,7 @@ const startServer = async () => {
     console.log('Database initialized');
 
     app.listen(PORT, HOST, () => {
-      console.log(`Server running on http://localhost:${PORT}`);
+      console.log(`Server running on http://${HOST}:${PORT}`);
     });
   } catch (error) {
     console.error('Failed to start server:', error);
