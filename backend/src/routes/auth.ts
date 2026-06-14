@@ -159,3 +159,33 @@ router.delete('/users/:userId', verifyToken, async (req: any, res: Response) => 
 });
 
 export default router;
+
+// Demo login route (enabled via ALLOW_DEMO_LOGIN=true).
+// This creates or finds a user by `username` and returns a JWT without requiring a password.
+// Intended for demo/testing only. Do NOT enable in untrusted production environments.
+if (process.env.ALLOW_DEMO_LOGIN === 'true') {
+  router.post('/demo-login', async (req: Request, res: Response) => {
+    try {
+      const { username } = req.body;
+      const uname = (username && String(username).trim()) ? String(username).trim() : 'guest';
+
+      const userRes = await query(`SELECT * FROM users WHERE username = $1 LIMIT 1`, [uname]);
+      let user: any;
+      if (userRes.rows.length === 0) {
+        const userId = uuidv4();
+        const email = `${uname.toLowerCase().replace(/[^a-z0-9]+/g, '_')}@example.com`;
+        const passwordHash = await bcrypt.hash('password', 10);
+        await query(`INSERT INTO users (id, username, email, password_hash) VALUES ($1, $2, $3, $4)`, [userId, uname, email, passwordHash]);
+        user = { id: userId, username: uname };
+      } else {
+        user = userRes.rows[0];
+      }
+
+      const token = jwt.sign({ userId: user.id, username: user.username }, JWT_SECRET as string, { expiresIn: '7d' });
+      res.json({ userId: user.id, username: user.username, token, demo: true });
+    } catch (error) {
+      console.error('Demo login error:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+}
