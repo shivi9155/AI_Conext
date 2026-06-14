@@ -15,8 +15,6 @@ services:
           property: connectionString
       - key: JWT_SECRET
         generateValue: true
-      - key: BACKEND_PORT
-        value: "5000"
 
   - type: web
     name: fairshare-frontend
@@ -34,6 +32,6 @@ services:
 
 databases:
   - name: fairshare-lite-db
-    engine: postgres
+    databaseEngine: postgres
     plan: starter
     region: oregon
