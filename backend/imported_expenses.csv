@@ -1,0 +1,125 @@
+imported_at,description,paid_by,amount,split_type,category,notes
+2026-06-14,grocery,b0be7ad1-c46a-46b3-870a-415986cdf3b2,500.00,unequal,Other,
+2026-06-14,February rent,2da13e16-2630-4433-9519-ef4657e469f9,48000.00,equal,Imported,Imported date: 2026-01-31 | Currency: INR
+2026-06-14,Groceries BigBasket,e275674d-7010-41de-9dc1-1f5d16d64edf,2340.00,equal,Imported,Imported date: 2026-02-02 | Currency: INR
+2026-06-14,Wifi bill Feb,9a440c7b-fc4f-4034-b760-e32a30eae056,1199.00,equal,Imported,Imported date: 2026-02-04 | Currency: INR
+2026-06-14,Dinner at Marina Bites,346ba294-3cd1-4859-85b3-c8ca6365cfbc,3200.00,equal,Imported,Dev visiting for the weekend | Imported date: 2026-02-07 | Currency: INR
+2026-06-14,dinner - marina bites,346ba294-3cd1-4859-85b3-c8ca6365cfbc,3200.00,equal,Imported,Imported date: 2026-02-07 | Currency: INR
+2026-06-14,Electricity Feb,2da13e16-2630-4433-9519-ef4657e469f9,1200.00,equal,Imported,Imported date: 2026-02-09 | Currency: INR
+2026-06-14,Maid salary Feb,ba378c35-9c0b-426a-83b0-09a85b22bd41,3000.00,equal,Imported,Imported date: 2026-02-11 | Currency: INR
+2026-06-14,Movie night snacks,e275674d-7010-41de-9dc1-1f5d16d64edf,640.00,equal,Imported,Meera skipped | Imported date: 2026-02-13 | Currency: INR
+2026-06-14,Cylinder refill,9a440c7b-fc4f-4034-b760-e32a30eae056,900.00,equal,Imported,Imported date: 2026-02-14 | Currency: INR
+2026-06-14,Groceries DMart,73ba4071-dda2-4f9a-bef9-d223ed9b8acb,1875.00,equal,Imported,Imported date: 2026-02-17 | Currency: INR
+2026-06-14,Aisha birthday cake,9a440c7b-fc4f-4034-b760-e32a30eae056,1500.00,unequal,Imported,Aisha not charged obviously | Imported date: 2026-02-19 | Currency: INR
+2026-06-14,Pizza Friday,2da13e16-2630-4433-9519-ef4657e469f9,1440.00,percentage,Imported,percentages might be off | Imported date: 2026-02-27 | Currency: INR
+2026-06-14,March rent,2da13e16-2630-4433-9519-ef4657e469f9,48000.00,equal,Imported,Imported date: 2026-02-28 | Currency: INR
+2026-06-14,Groceries BigBasket,ba378c35-9c0b-426a-83b0-09a85b22bd41,2810.00,equal,Imported,Imported date: 2026-03-02 | Currency: INR
+2026-06-14,Wifi bill Mar,9a440c7b-fc4f-4034-b760-e32a30eae056,1199.00,equal,Imported,Imported date: 2026-03-04 | Currency: INR
+2026-06-14,Goa flights,2da13e16-2630-4433-9519-ef4657e469f9,32400.00,equal,Imported,trip starts! | Imported date: 2026-03-07 | Currency: INR
+2026-06-14,Goa villa booking,346ba294-3cd1-4859-85b3-c8ca6365cfbc,540.00,equal,Imported,booked on intl site | Imported date: 2026-03-08 | Currency: USD
+2026-06-14,Beach shack lunch,9a440c7b-fc4f-4034-b760-e32a30eae056,84.00,equal,Imported,Imported date: 2026-03-09 | Currency: USD
+2026-06-14,Scooter rentals,e275674d-7010-41de-9dc1-1f5d16d64edf,3600.00,share,Imported,Rohan and Dev took the bigger ones | Imported date: 2026-03-09 | Currency: INR
+2026-06-14,Parasailing,346ba294-3cd1-4859-85b3-c8ca6365cfbc,150.00,equal,Imported,Kabir joined for the day | Imported date: 2026-03-10 | Currency: USD
+2026-06-14,Dinner at Thalassa,2da13e16-2630-4433-9519-ef4657e469f9,2400.00,equal,Imported,Imported date: 2026-03-10 | Currency: INR
+2026-06-14,Thalassa dinner,9a440c7b-fc4f-4034-b760-e32a30eae056,2450.00,equal,Imported,Aisha also logged this I think hers is wrong | Imported date: 2026-03-10 | Currency: INR
+2026-06-14,Parasailing refund,346ba294-3cd1-4859-85b3-c8ca6365cfbc,-30.00,equal,Imported,one slot got cancelled | Imported date: 2026-03-11 | Currency: USD
+2026-06-14,Airport cab,9a440c7b-fc4f-4034-b760-e32a30eae056,1100.00,equal,Imported,Imported date: 2026-03-13 | Currency: INR
+2026-06-14,Groceries DMart,e275674d-7010-41de-9dc1-1f5d16d64edf,2105.00,equal,Imported,forgot to set currency | Imported date: 2026-03-14 | Currency: INR
+2026-06-14,Electricity Mar,2da13e16-2630-4433-9519-ef4657e469f9,1450.00,equal,Imported,Imported date: 2026-03-17 | Currency: INR
+2026-06-14,Maid salary Mar,ba378c35-9c0b-426a-83b0-09a85b22bd41,3000.00,equal,Imported,Imported date: 2026-03-19 | Currency: INR
+2026-06-14,Dinner order Swiggy,e275674d-7010-41de-9dc1-1f5d16d64edf,0.00,equal,Imported,counted twice earlier - fixing later | Imported date: 2026-03-21 | Currency: INR
+2026-06-14,Weekend brunch,ba378c35-9c0b-426a-83b0-09a85b22bd41,2200.00,percentage,Imported,Imported date: 2026-03-24 | Currency: INR
+2026-06-14,Meera farewell dinner,2da13e16-2630-4433-9519-ef4657e469f9,4800.00,equal,Imported,Meera moving out Sunday :( | Imported date: 2026-03-27 | Currency: INR
+2026-06-14,Deep cleaning service,9a440c7b-fc4f-4034-b760-e32a30eae056,2500.00,equal,Imported,is this April 5 or May 4? format is a mess | Imported date: 2026-05-03 | Currency: INR
+2026-06-14,April rent,2da13e16-2630-4433-9519-ef4657e469f9,48000.00,share,Imported,Aisha took Meera's room too | Imported date: 2026-03-31 | Currency: INR
+2026-06-14,Groceries BigBasket,e275674d-7010-41de-9dc1-1f5d16d64edf,2640.00,equal,Imported,oops Meera still in the group list | Imported date: 2026-04-01 | Currency: INR
+2026-06-14,Wifi bill Apr,9a440c7b-fc4f-4034-b760-e32a30eae056,1199.00,equal,Imported,Imported date: 2026-04-04 | Currency: INR
+2026-06-14,Sam deposit share,bb49ac0b-2791-4dcf-80d0-c117bda8fbcf,15000.00,equal,Imported,Sam moving in! paid Aisha his deposit | Imported date: 2026-04-07 | Currency: INR
+2026-06-14,Housewarming drinks,bb49ac0b-2791-4dcf-80d0-c117bda8fbcf,3100.00,equal,Imported,Imported date: 2026-04-09 | Currency: INR
+2026-06-14,Electricity Apr,2da13e16-2630-4433-9519-ef4657e469f9,1380.00,equal,Imported,Imported date: 2026-04-11 | Currency: INR
+2026-06-14,Groceries DMart,bb49ac0b-2791-4dcf-80d0-c117bda8fbcf,1990.00,equal,Imported,Imported date: 2026-04-14 | Currency: INR
+2026-06-14,Furniture for common room,2da13e16-2630-4433-9519-ef4657e469f9,12000.00,equal,Imported,split_type says equal but someone added shares anyway | Imported date: 2026-04-17 | Currency: INR
+2026-06-14,Maid salary Apr,e275674d-7010-41de-9dc1-1f5d16d64edf,3000.00,equal,Imported,Imported date: 2026-04-19 | Currency: INR
+2026-06-14,February rent,2da13e16-2630-4433-9519-ef4657e469f9,48000.00,equal,Imported,Imported date: 2026-01-31 | Currency: INR
+2026-06-14,Groceries BigBasket,e275674d-7010-41de-9dc1-1f5d16d64edf,2340.00,equal,Imported,Imported date: 2026-02-02 | Currency: INR
+2026-06-14,Wifi bill Feb,9a440c7b-fc4f-4034-b760-e32a30eae056,1199.00,equal,Imported,Imported date: 2026-02-04 | Currency: INR
+2026-06-14,Dinner at Marina Bites,346ba294-3cd1-4859-85b3-c8ca6365cfbc,3200.00,equal,Imported,Dev visiting for the weekend | Imported date: 2026-02-07 | Currency: INR
+2026-06-14,dinner - marina bites,346ba294-3cd1-4859-85b3-c8ca6365cfbc,3200.00,equal,Imported,Imported date: 2026-02-07 | Currency: INR
+2026-06-14,Electricity Feb,2da13e16-2630-4433-9519-ef4657e469f9,1200.00,equal,Imported,Imported date: 2026-02-09 | Currency: INR
+2026-06-14,Maid salary Feb,ba378c35-9c0b-426a-83b0-09a85b22bd41,3000.00,equal,Imported,Imported date: 2026-02-11 | Currency: INR
+2026-06-14,Movie night snacks,e275674d-7010-41de-9dc1-1f5d16d64edf,640.00,equal,Imported,Meera skipped | Imported date: 2026-02-13 | Currency: INR
+2026-06-14,Cylinder refill,9a440c7b-fc4f-4034-b760-e32a30eae056,900.00,equal,Imported,Imported date: 2026-02-14 | Currency: INR
+2026-06-14,Groceries DMart,73ba4071-dda2-4f9a-bef9-d223ed9b8acb,1875.00,equal,Imported,Imported date: 2026-02-17 | Currency: INR
+2026-06-14,Aisha birthday cake,9a440c7b-fc4f-4034-b760-e32a30eae056,1500.00,unequal,Imported,Aisha not charged obviously | Imported date: 2026-02-19 | Currency: INR
+2026-06-14,Pizza Friday,2da13e16-2630-4433-9519-ef4657e469f9,1440.00,percentage,Imported,percentages might be off | Imported date: 2026-02-27 | Currency: INR
+2026-06-14,March rent,2da13e16-2630-4433-9519-ef4657e469f9,48000.00,equal,Imported,Imported date: 2026-02-28 | Currency: INR
+2026-06-14,Groceries BigBasket,ba378c35-9c0b-426a-83b0-09a85b22bd41,2810.00,equal,Imported,Imported date: 2026-03-02 | Currency: INR
+2026-06-14,Wifi bill Mar,9a440c7b-fc4f-4034-b760-e32a30eae056,1199.00,equal,Imported,Imported date: 2026-03-04 | Currency: INR
+2026-06-14,Goa flights,2da13e16-2630-4433-9519-ef4657e469f9,32400.00,equal,Imported,trip starts! | Imported date: 2026-03-07 | Currency: INR
+2026-06-14,Goa villa booking,346ba294-3cd1-4859-85b3-c8ca6365cfbc,540.00,equal,Imported,booked on intl site | Imported date: 2026-03-08 | Currency: USD
+2026-06-14,Beach shack lunch,9a440c7b-fc4f-4034-b760-e32a30eae056,84.00,equal,Imported,Imported date: 2026-03-09 | Currency: USD
+2026-06-14,Scooter rentals,e275674d-7010-41de-9dc1-1f5d16d64edf,3600.00,share,Imported,Rohan and Dev took the bigger ones | Imported date: 2026-03-09 | Currency: INR
+2026-06-14,Parasailing,346ba294-3cd1-4859-85b3-c8ca6365cfbc,150.00,equal,Imported,Kabir joined for the day | Imported date: 2026-03-10 | Currency: USD
+2026-06-14,Dinner at Thalassa,2da13e16-2630-4433-9519-ef4657e469f9,2400.00,equal,Imported,Imported date: 2026-03-10 | Currency: INR
+2026-06-14,Thalassa dinner,9a440c7b-fc4f-4034-b760-e32a30eae056,2450.00,equal,Imported,Aisha also logged this I think hers is wrong | Imported date: 2026-03-10 | Currency: INR
+2026-06-14,Parasailing refund,346ba294-3cd1-4859-85b3-c8ca6365cfbc,-30.00,equal,Imported,one slot got cancelled | Imported date: 2026-03-11 | Currency: USD
+2026-06-14,Airport cab,9a440c7b-fc4f-4034-b760-e32a30eae056,1100.00,equal,Imported,Imported date: 2026-03-13 | Currency: INR
+2026-06-14,Groceries DMart,e275674d-7010-41de-9dc1-1f5d16d64edf,2105.00,equal,Imported,forgot to set currency | Imported date: 2026-03-14 | Currency: INR
+2026-06-14,Electricity Mar,2da13e16-2630-4433-9519-ef4657e469f9,1450.00,equal,Imported,Imported date: 2026-03-17 | Currency: INR
+2026-06-14,Maid salary Mar,ba378c35-9c0b-426a-83b0-09a85b22bd41,3000.00,equal,Imported,Imported date: 2026-03-19 | Currency: INR
+2026-06-14,Dinner order Swiggy,e275674d-7010-41de-9dc1-1f5d16d64edf,0.00,equal,Imported,counted twice earlier - fixing later | Imported date: 2026-03-21 | Currency: INR
+2026-06-14,Weekend brunch,ba378c35-9c0b-426a-83b0-09a85b22bd41,2200.00,percentage,Imported,Imported date: 2026-03-24 | Currency: INR
+2026-06-14,Meera farewell dinner,2da13e16-2630-4433-9519-ef4657e469f9,4800.00,equal,Imported,Meera moving out Sunday :( | Imported date: 2026-03-27 | Currency: INR
+2026-06-14,Deep cleaning service,9a440c7b-fc4f-4034-b760-e32a30eae056,2500.00,equal,Imported,is this April 5 or May 4? format is a mess | Imported date: 2026-05-03 | Currency: INR
+2026-06-14,April rent,2da13e16-2630-4433-9519-ef4657e469f9,48000.00,share,Imported,Aisha took Meera's room too | Imported date: 2026-03-31 | Currency: INR
+2026-06-14,Groceries BigBasket,e275674d-7010-41de-9dc1-1f5d16d64edf,2640.00,equal,Imported,oops Meera still in the group list | Imported date: 2026-04-01 | Currency: INR
+2026-06-14,Wifi bill Apr,9a440c7b-fc4f-4034-b760-e32a30eae056,1199.00,equal,Imported,Imported date: 2026-04-04 | Currency: INR
+2026-06-14,Sam deposit share,bb49ac0b-2791-4dcf-80d0-c117bda8fbcf,15000.00,equal,Imported,Sam moving in! paid Aisha his deposit | Imported date: 2026-04-07 | Currency: INR
+2026-06-14,Housewarming drinks,bb49ac0b-2791-4dcf-80d0-c117bda8fbcf,3100.00,equal,Imported,Imported date: 2026-04-09 | Currency: INR
+2026-06-14,Electricity Apr,2da13e16-2630-4433-9519-ef4657e469f9,1380.00,equal,Imported,Imported date: 2026-04-11 | Currency: INR
+2026-06-14,Groceries DMart,bb49ac0b-2791-4dcf-80d0-c117bda8fbcf,1990.00,equal,Imported,Imported date: 2026-04-14 | Currency: INR
+2026-06-14,Furniture for common room,2da13e16-2630-4433-9519-ef4657e469f9,12000.00,equal,Imported,split_type says equal but someone added shares anyway | Imported date: 2026-04-17 | Currency: INR
+2026-06-14,Maid salary Apr,e275674d-7010-41de-9dc1-1f5d16d64edf,3000.00,equal,Imported,Imported date: 2026-04-19 | Currency: INR
+2026-06-14,Cylinder refill,9a440c7b-fc4f-4034-b760-e32a30eae056,900.00,equal,Imported,Imported date: 2026-02-14 | Currency: INR
+2026-06-14,House cleaning supplies,8b261753-8e64-4169-bf64-0ddd7c27a41b,780.00,equal,Imported,can't remember who paid | Imported date: 2026-02-21 | Currency: INR
+2026-06-14,February rent,2da13e16-2630-4433-9519-ef4657e469f9,48000.00,equal,Imported,Imported date: 2026-01-31 | Currency: INR
+2026-06-14,Groceries BigBasket,e275674d-7010-41de-9dc1-1f5d16d64edf,2340.00,equal,Imported,Imported date: 2026-02-02 | Currency: INR
+2026-06-14,Wifi bill Feb,9a440c7b-fc4f-4034-b760-e32a30eae056,1199.00,equal,Imported,Imported date: 2026-02-04 | Currency: INR
+2026-06-14,Dinner at Marina Bites,346ba294-3cd1-4859-85b3-c8ca6365cfbc,3200.00,equal,Imported,Dev visiting for the weekend | Imported date: 2026-02-07 | Currency: INR
+2026-06-14,dinner - marina bites,346ba294-3cd1-4859-85b3-c8ca6365cfbc,3200.00,equal,Imported,Imported date: 2026-02-07 | Currency: INR
+2026-06-14,Electricity Feb,2da13e16-2630-4433-9519-ef4657e469f9,1200.00,equal,Imported,Imported date: 2026-02-09 | Currency: INR
+2026-06-14,Maid salary Feb,ba378c35-9c0b-426a-83b0-09a85b22bd41,3000.00,equal,Imported,Imported date: 2026-02-11 | Currency: INR
+2026-06-14,Movie night snacks,e275674d-7010-41de-9dc1-1f5d16d64edf,640.00,equal,Imported,Meera skipped | Imported date: 2026-02-13 | Currency: INR
+2026-06-14,Cylinder refill,9a440c7b-fc4f-4034-b760-e32a30eae056,900.00,equal,Imported,Imported date: 2026-02-14 | Currency: INR
+2026-06-14,Groceries DMart,73ba4071-dda2-4f9a-bef9-d223ed9b8acb,1875.00,equal,Imported,Imported date: 2026-02-17 | Currency: INR
+2026-06-14,Aisha birthday cake,9a440c7b-fc4f-4034-b760-e32a30eae056,1500.00,unequal,Imported,Aisha not charged obviously | Imported date: 2026-02-19 | Currency: INR
+2026-06-14,House cleaning supplies,8b261753-8e64-4169-bf64-0ddd7c27a41b,780.00,equal,Imported,can't remember who paid | Imported date: 2026-02-21 | Currency: INR
+2026-06-14,Pizza Friday,2da13e16-2630-4433-9519-ef4657e469f9,1440.00,percentage,Imported,percentages might be off | Imported date: 2026-02-27 | Currency: INR
+2026-06-14,March rent,2da13e16-2630-4433-9519-ef4657e469f9,48000.00,equal,Imported,Imported date: 2026-02-28 | Currency: INR
+2026-06-14,Groceries BigBasket,ba378c35-9c0b-426a-83b0-09a85b22bd41,2810.00,equal,Imported,Imported date: 2026-03-02 | Currency: INR
+2026-06-14,Wifi bill Mar,9a440c7b-fc4f-4034-b760-e32a30eae056,1199.00,equal,Imported,Imported date: 2026-03-04 | Currency: INR
+2026-06-14,Goa flights,2da13e16-2630-4433-9519-ef4657e469f9,32400.00,equal,Imported,trip starts! | Imported date: 2026-03-07 | Currency: INR
+2026-06-14,Goa villa booking,346ba294-3cd1-4859-85b3-c8ca6365cfbc,540.00,equal,Imported,booked on intl site | Imported date: 2026-03-08 | Currency: USD
+2026-06-14,Beach shack lunch,9a440c7b-fc4f-4034-b760-e32a30eae056,84.00,equal,Imported,Imported date: 2026-03-09 | Currency: USD
+2026-06-14,Scooter rentals,e275674d-7010-41de-9dc1-1f5d16d64edf,3600.00,share,Imported,Rohan and Dev took the bigger ones | Imported date: 2026-03-09 | Currency: INR
+2026-06-14,Parasailing,346ba294-3cd1-4859-85b3-c8ca6365cfbc,150.00,equal,Imported,Kabir joined for the day | Imported date: 2026-03-10 | Currency: USD
+2026-06-14,Dinner at Thalassa,2da13e16-2630-4433-9519-ef4657e469f9,2400.00,equal,Imported,Imported date: 2026-03-10 | Currency: INR
+2026-06-14,Thalassa dinner,9a440c7b-fc4f-4034-b760-e32a30eae056,2450.00,equal,Imported,Aisha also logged this I think hers is wrong | Imported date: 2026-03-10 | Currency: INR
+2026-06-14,Parasailing refund,346ba294-3cd1-4859-85b3-c8ca6365cfbc,-30.00,equal,Imported,one slot got cancelled | Imported date: 2026-03-11 | Currency: USD
+2026-06-14,Airport cab,9a440c7b-fc4f-4034-b760-e32a30eae056,1100.00,equal,Imported,Imported date: 2026-03-13 | Currency: INR
+2026-06-14,Groceries DMart,e275674d-7010-41de-9dc1-1f5d16d64edf,2105.00,equal,Imported,forgot to set currency | Imported date: 2026-03-14 | Currency: INR
+2026-06-14,Electricity Mar,2da13e16-2630-4433-9519-ef4657e469f9,1450.00,equal,Imported,Imported date: 2026-03-17 | Currency: INR
+2026-06-14,Maid salary Mar,ba378c35-9c0b-426a-83b0-09a85b22bd41,3000.00,equal,Imported,Imported date: 2026-03-19 | Currency: INR
+2026-06-14,Dinner order Swiggy,e275674d-7010-41de-9dc1-1f5d16d64edf,0.00,equal,Imported,counted twice earlier - fixing later | Imported date: 2026-03-21 | Currency: INR
+2026-06-14,Weekend brunch,ba378c35-9c0b-426a-83b0-09a85b22bd41,2200.00,percentage,Imported,Imported date: 2026-03-24 | Currency: INR
+2026-06-14,Meera farewell dinner,2da13e16-2630-4433-9519-ef4657e469f9,4800.00,equal,Imported,Meera moving out Sunday :( | Imported date: 2026-03-27 | Currency: INR
+2026-06-14,Deep cleaning service,9a440c7b-fc4f-4034-b760-e32a30eae056,2500.00,equal,Imported,is this April 5 or May 4? format is a mess | Imported date: 2026-05-03 | Currency: INR
+2026-06-14,April rent,2da13e16-2630-4433-9519-ef4657e469f9,48000.00,share,Imported,Aisha took Meera's room too | Imported date: 2026-03-31 | Currency: INR
+2026-06-14,Groceries BigBasket,e275674d-7010-41de-9dc1-1f5d16d64edf,2640.00,equal,Imported,oops Meera still in the group list | Imported date: 2026-04-01 | Currency: INR
+2026-06-14,Wifi bill Apr,9a440c7b-fc4f-4034-b760-e32a30eae056,1199.00,equal,Imported,Imported date: 2026-04-04 | Currency: INR
+2026-06-14,Sam deposit share,bb49ac0b-2791-4dcf-80d0-c117bda8fbcf,15000.00,equal,Imported,Sam moving in! paid Aisha his deposit | Imported date: 2026-04-07 | Currency: INR
+2026-06-14,Housewarming drinks,bb49ac0b-2791-4dcf-80d0-c117bda8fbcf,3100.00,equal,Imported,Imported date: 2026-04-09 | Currency: INR
+2026-06-14,Electricity Apr,2da13e16-2630-4433-9519-ef4657e469f9,1380.00,equal,Imported,Imported date: 2026-04-11 | Currency: INR
+2026-06-14,Groceries DMart,bb49ac0b-2791-4dcf-80d0-c117bda8fbcf,1990.00,equal,Imported,Imported date: 2026-04-14 | Currency: INR
+2026-06-14,Furniture for common room,2da13e16-2630-4433-9519-ef4657e469f9,12000.00,equal,Imported,split_type says equal but someone added shares anyway | Imported date: 2026-04-17 | Currency: INR
+2026-06-14,Maid salary Apr,e275674d-7010-41de-9dc1-1f5d16d64edf,3000.00,equal,Imported,Imported date: 2026-04-19 | Currency: INR
