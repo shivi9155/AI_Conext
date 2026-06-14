@@ -4,13 +4,13 @@ services:
     env: node
     plan: free
     region: oregon
-    buildCommand: cd backend && npm ci && npm run build
+    buildCommand: cd backend && npm install && npm run build
     startCommand: cd backend && npm start
     envVars:
       - key: NODE_ENV
         value: production
       - key: DATABASE_URL
-        value: "postgresql://fairshare_lite_user:NFKjtSzwRCgBtu3kmO3SzuOx3dQwIQQ9@dpg-d8nbr4rbc2fs73es3or0-a.oregon-postgres.render.com/fairshare_lite"
+        value: "<RENDER_INTERNAL_CONNECTION_STRING>"
       - key: JWT_SECRET
         generateValue: true
 
