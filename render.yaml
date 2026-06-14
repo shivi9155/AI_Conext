@@ -2,7 +2,7 @@ services:
   - type: web
     name: fairshare-backend
     env: node
-    plan: starter
+    plan: free
     region: oregon
     buildCommand: cd backend && npm ci && npm run build
     startCommand: cd backend && npm start
@@ -19,7 +19,7 @@ services:
   - type: web
     name: fairshare-frontend
     env: node
-    plan: starter
+    plan: free
     region: oregon
     buildCommand: cd frontend && npm ci && npm run build
     startCommand: cd frontend && npm start
@@ -29,5 +29,5 @@ services:
 
 databases:
   - name: fairshare-lite-db
-    plan: starter
+    plan: free
     region: oregon
