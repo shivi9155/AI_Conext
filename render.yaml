@@ -25,10 +25,7 @@ services:
     startCommand: cd frontend && npm start
     envVars:
       - key: NEXT_PUBLIC_API_URL
-        fromService:
-          name: fairshare-backend
-          property: url
-          relativeUrlPath: /api
+        value: https://fairshare-backend.onrender.com/api
 
 databases:
   - name: fairshare-lite-db
