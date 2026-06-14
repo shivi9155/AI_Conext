@@ -21,6 +21,8 @@ export default function AddExpensePage() {
   const [amount, setAmount] = useState('');
   const [splitType, setSplitType] = useState<SplitType>('equal');
   const [shares, setShares] = useState<{ [key: string]: number }>({});
+  const [category, setCategory] = useState('Other');
+  const [notes, setNotes] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
   const { formatAmount } = useSettings();
@@ -83,7 +85,7 @@ export default function AddExpensePage() {
     }
 
     try {
-      await expenseService.create(groupId!, description, numericAmount, splitType, derivedShares);
+      await expenseService.create(groupId!, description, numericAmount, splitType, derivedShares, category, notes);
       router.push(`/groups/${groupId}`);
     } catch (err: any) {
       setError('Failed to create expense');
@@ -137,6 +139,33 @@ export default function AddExpensePage() {
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
                 placeholder="0.00"
+                className="control w-full"
+              />
+            </div>
+
+            <div>
+              <label className="font-bold mb-2">Category</label>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="control w-full"
+              >
+                <option value="Food">Food 🍔</option>
+                <option value="Transport">Transport 🚗</option>
+                <option value="Shopping">Shopping 🛍️</option>
+                <option value="Bills">Bills 💵</option>
+                <option value="Entertainment">Entertainment 🎭</option>
+                <option value="Other">Other 📦</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="font-bold mb-2">Notes</label>
+              <input
+                type="text"
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                placeholder="Optional notes..."
                 className="control w-full"
               />
             </div>

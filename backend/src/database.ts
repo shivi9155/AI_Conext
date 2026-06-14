@@ -86,6 +86,25 @@ export const initializeDatabase = async (): Promise<void> => {
       );
     `);
 
+    // Add category and notes to expenses if they do not exist
+    await pool.query(`
+      ALTER TABLE expenses ADD COLUMN IF NOT EXISTS category VARCHAR(100) DEFAULT 'Other';
+    `);
+    await pool.query(`
+      ALTER TABLE expenses ADD COLUMN IF NOT EXISTS notes TEXT;
+    `);
+
+    // Activity log table
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS activity_log (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        group_id UUID NOT NULL REFERENCES groups(id) ON DELETE CASCADE,
+        user_id UUID REFERENCES users(id) ON DELETE SET NULL,
+        action VARCHAR(255) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+    `);
+
     console.log('Database initialized successfully');
   } catch (error) {
     console.error('Error initializing database:', error);

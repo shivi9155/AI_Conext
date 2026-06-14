@@ -19,6 +19,10 @@ export const authService = {
     api.post('/auth/register', { username, email, password }),
   login: (username: string, password: string) =>
     api.post('/auth/login', { username, password }),
+  renameUser: (userId: string, username: string) =>
+    api.put(`/auth/users/${userId}`, { username }),
+  deleteUser: (userId: string) =>
+    api.delete(`/auth/users/${userId}`),
 };
 
 export const groupService = {
@@ -30,9 +34,10 @@ export const groupService = {
 };
 
 export const expenseService = {
-  create: (groupId: string, description: string, amount: number, splitType: string, shares: any[]) =>
-    api.post('/expenses', { groupId, description, amount, splitType, shares }),
+  create: (groupId: string, description: string, amount: number, splitType: string, shares: any[], category?: string, notes?: string) =>
+    api.post('/expenses', { groupId, description, amount, splitType, shares, category, notes }),
   getById: (expenseId: string) => api.get(`/expenses/${expenseId}`),
+  delete: (expenseId: string) => api.delete(`/expenses/${expenseId}`),
   addComment: (expenseId: string, content: string) =>
     api.post(`/expenses/${expenseId}/comments`, { content }),
 };

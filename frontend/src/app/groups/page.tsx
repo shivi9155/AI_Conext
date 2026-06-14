@@ -15,6 +15,9 @@ interface Group {
 export default function GroupListPage() {
   const [groups, setGroups] = useState<Group[]>([]);
   const [newGroupName, setNewGroupName] = useState('');
+  const [newGroupMember, setNewGroupMember] = useState('');
+  const [createdGroupId, setCreatedGroupId] = useState('');
+  const [createdGroupName, setCreatedGroupName] = useState('');
   const [error, setError] = useState('');
   const [toast, setToast] = useState('');
   const [loading, setLoading] = useState(true);
@@ -43,16 +46,34 @@ export default function GroupListPage() {
 
   const handleCreateGroup = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
     if (!newGroupName.trim()) return;
 
     try {
-      const response = await groupService.create(newGroupName);
+      const response = await groupService.create(newGroupName.trim());
       setGroups([...groups, response.data]);
       setNewGroupName('');
-      setToast('Group created');
+      setCreatedGroupId(response.data.id);
+      setCreatedGroupName(response.data.name);
+      setNewGroupMember('');
+      setToast('Group created. Add members next.');
       window.setTimeout(() => setToast(''), 2200);
     } catch (err: any) {
-      setError('Failed to create group');
+      setError(err.response?.data?.error || 'Failed to create group');
+    }
+  };
+
+  const handleAddMemberToGroup = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!createdGroupId || !newGroupMember.trim()) return;
+    try {
+      await groupService.addMember(createdGroupId, newGroupMember.trim());
+      setNewGroupMember('');
+      setToast('Member added successfully');
+      window.setTimeout(() => setToast(''), 2200);
+    } catch (err: any) {
+      setToast(err.response?.data?.error || 'Failed to add member');
+      window.setTimeout(() => setToast(''), 2200);
     }
   };
 
@@ -93,7 +114,7 @@ export default function GroupListPage() {
 
         <section className="panel mb-8">
           <h2 className="panel-header">Create New Group</h2>
-          <form onSubmit={handleCreateGroup} className="flex-row w-full">
+          <form onSubmit={handleCreateGroup} className="flex-col w-full" style={{ gap: '0.9rem' }}>
             <input
               type="text"
               value={newGroupName}
@@ -101,15 +122,44 @@ export default function GroupListPage() {
               placeholder="Enter group name..."
               className="control w-full"
             />
-            <button
-              type="submit"
-              className="btn primary-button"
-            >
-              Create
-            </button>
+            <div className="flex-row" style={{ gap: '0.75rem', flexWrap: 'wrap' }}>
+              <button
+                type="submit"
+                className="btn primary-button"
+              >
+                Create Group
+              </button>
+              <span className="panel-text" style={{ alignSelf: 'center', fontSize: '0.95rem' }}>
+                Create the group first, then add members like Splitwise.
+              </span>
+            </div>
           </form>
           {error && <p className="error-banner">{error}</p>}
         </section>
+
+        {createdGroupId && (
+          <section className="panel mb-8">
+            <h2 className="panel-header">Add Member to "{createdGroupName}"</h2>
+            <form onSubmit={handleAddMemberToGroup} className="flex-col w-full" style={{ gap: '0.85rem' }}>
+              <input
+                type="text"
+                value={newGroupMember}
+                onChange={(e) => setNewGroupMember(e.target.value)}
+                placeholder="Enter member username"
+                className="control w-full"
+              />
+              <div className="flex-row" style={{ gap: '0.75rem', flexWrap: 'wrap' }}>
+                <button type="submit" className="btn primary-button">Add Member</button>
+                <button type="button" className="btn secondary-button" onClick={() => { setCreatedGroupId(''); setCreatedGroupName(''); setNewGroupMember(''); }}>
+                  Done
+                </button>
+              </div>
+              <p className="panel-text" style={{ margin: 0 }}>
+                You can add members now or return to the group list and update later.
+              </p>
+            </form>
+          </section>
+        )}
 
         <section>
           <div className="flex-between mb-4">
