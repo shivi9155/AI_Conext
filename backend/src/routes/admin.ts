@@ -5,7 +5,9 @@ const router = Router();
 
 // Protected import endpoint. Enable by setting ALLOW_IMPORT=true in the service environment.
 router.post('/import-expenses', async (req: Request, res: Response) => {
-  if (process.env.ALLOW_IMPORT !== 'true') {
+  // Allow import when explicitly enabled or when running in a non-production environment
+  const importAllowed = process.env.ALLOW_IMPORT === 'true' || process.env.NODE_ENV !== 'production';
+  if (!importAllowed) {
     res.status(403).json({ error: 'Import endpoint disabled' });
     return;
   }

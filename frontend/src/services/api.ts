@@ -38,10 +38,17 @@ export const groupService = {
 export const expenseService = {
   create: (groupId: string, description: string, amount: number, splitType: string, shares: any[], category?: string, notes?: string) =>
     api.post('/expenses', { groupId, description, amount, splitType, shares, category, notes }),
+  list: (params: Record<string, any>) => api.get('/expenses', { params }),
   getById: (expenseId: string) => api.get(`/expenses/${expenseId}`),
   delete: (expenseId: string) => api.delete(`/expenses/${expenseId}`),
   addComment: (expenseId: string, content: string) =>
     api.post(`/expenses/${expenseId}/comments`, { content }),
+};
+
+export const importService = {
+  uploadCsv: (groupId: string, csvText: string) =>
+    api.post('/import-expenses', { groupId, csvText }),
+  getHistory: (groupId: string) => api.get(`/import-expenses/${groupId}`),
 };
 
 export const settlementService = {

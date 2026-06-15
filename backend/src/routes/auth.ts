@@ -160,10 +160,10 @@ router.delete('/users/:userId', verifyToken, async (req: any, res: Response) => 
 
 export default router;
 
-// Demo login route (enabled via ALLOW_DEMO_LOGIN=true).
+// Demo login route (enabled via ALLOW_DEMO_LOGIN=true or in non-production).
 // This creates or finds a user by `username` and returns a JWT without requiring a password.
 // Intended for demo/testing only. Do NOT enable in untrusted production environments.
-if (process.env.ALLOW_DEMO_LOGIN === 'true') {
+if (process.env.ALLOW_DEMO_LOGIN === 'true' || process.env.NODE_ENV !== 'production') {
   router.post('/demo-login', async (req: Request, res: Response) => {
     try {
       const { username } = req.body;

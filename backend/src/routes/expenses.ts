@@ -2,18 +2,87 @@ import { Router, Request, Response } from 'express';
 import { query } from '../db';
 import { v4 as uuidv4 } from 'uuid';
 import { verifyToken } from '../middleware/auth';
+import { authorizeGroupMember } from '../middleware/authorizeGroupMember';
 
 const router = Router();
 
+// List expenses with filtering and pagination
+router.get('/', verifyToken, authorizeGroupMember, async (req: any, res: Response) => {
+  try {
+    const { groupId, paidBy, search, currency, startDate, endDate, page = '1', limit = '20', sort = 'date_desc' } = req.query;
+    if (!groupId) {
+      res.status(400).json({ error: 'groupId is required' });
+      return;
+    }
+
+    const queryParams: any[] = [groupId];
+    let filterSql = 'WHERE e.group_id = $1';
+
+    if (paidBy) {
+      queryParams.push(paidBy);
+      filterSql += ` AND e.paid_by = $${queryParams.length}`;
+    }
+    if (currency) {
+      queryParams.push(currency);
+      filterSql += ` AND e.currency = $${queryParams.length}`;
+    }
+    if (search) {
+      queryParams.push(`%${search}%`);
+      filterSql += ` AND (e.description ILIKE $${queryParams.length} OR u.username ILIKE $${queryParams.length})`;
+    }
+    if (startDate) {
+      queryParams.push(startDate);
+      filterSql += ` AND e.date >= $${queryParams.length}`;
+    }
+    if (endDate) {
+      queryParams.push(endDate);
+      filterSql += ` AND e.date <= $${queryParams.length}`;
+    }
+
+    const sortClause = sort === 'amount_asc'
+      ? 'ORDER BY e.amount ASC'
+      : sort === 'amount_desc'
+      ? 'ORDER BY e.amount DESC'
+      : sort === 'date_asc'
+      ? 'ORDER BY e.date ASC'
+      : 'ORDER BY e.date DESC';
+
+    const offset = (Number(page) - 1) * Number(limit);
+    queryParams.push(Number(limit), offset);
+
+    const expensesRes = await query(
+      `SELECT e.*, u.username AS paid_by_username FROM expenses e JOIN users u ON e.paid_by = u.id ${filterSql} ${sortClause} LIMIT $${queryParams.length - 1} OFFSET $${queryParams.length}`,
+      queryParams
+    );
+
+    const result = [];
+    for (const expense of expensesRes.rows) {
+      const sharesRes = await query(`SELECT es.user_id, es.amount, u.username FROM expense_splits es JOIN users u ON es.user_id = u.id WHERE es.expense_id = $1`, [expense.id]);
+      result.push({
+        ...expense,
+        amount: Number(expense.amount),
+        shares: sharesRes.rows.map((row: any) => ({ userId: row.user_id, username: row.username, amount: Number(row.amount) })),
+      });
+    }
+
+    res.json({ expenses: result });
+  } catch (error) {
+    console.error('List expenses error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Create expense
-router.post('/', verifyToken, async (req: any, res: Response) => {
+router.post('/', verifyToken, authorizeGroupMember, async (req: any, res: Response) => {
   try {
     const { groupId, description, amount, splitType, shares, category, notes } = req.body;
-    const userId = req.user.userId;
-    const username = req.user.username;
+    const userId = req.user?.userId;
+    const username = req.user?.username || 'Unknown';
 
-    if (!groupId || !description || !amount || !splitType) {
-      res.status(400).json({ error: 'Missing required fields' });
+    // Validate required fields more robustly. Allow zero amounts but require a numeric value.
+    const parsedAmount = Number(String(amount || '').replace(/,/g, ''));
+    if (!groupId || !description || !splitType || !Number.isFinite(parsedAmount)) {
+      res.status(400).json({ error: 'Missing or invalid required fields' });
       return;
     }
 
@@ -21,11 +90,11 @@ router.post('/', verifyToken, async (req: any, res: Response) => {
     const finalCategory = category || 'Other';
     const finalNotes = notes || null;
 
-    // Insert expense
+    // Insert expense (ensure amount is numeric)
     await query(
       `INSERT INTO expenses (id, group_id, paid_by, description, amount, split_type, category, notes)
        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
-      [expenseId, groupId, userId, description, amount, splitType, finalCategory, finalNotes]
+      [expenseId, groupId, userId, description, parsedAmount, splitType, finalCategory, finalNotes]
     );
 
     // Insert shares
@@ -34,7 +103,7 @@ router.post('/', verifyToken, async (req: any, res: Response) => {
         await query(
           `INSERT INTO expense_shares (expense_id, user_id, amount)
            VALUES ($1, $2, $3)`,
-          [expenseId, share.userId, share.amount]
+          [expenseId, share.userId, Number(share.amount) || 0]
         );
       }
     }

@@ -2,6 +2,7 @@ import { Router, Request, Response } from 'express';
 import { query } from '../db';
 import { v4 as uuidv4 } from 'uuid';
 import { verifyToken } from '../middleware/auth';
+import { authorizeGroupMember } from '../middleware/authorizeGroupMember';
 
 const router = Router();
 
@@ -25,7 +26,7 @@ router.get('/', verifyToken, async (req: any, res: Response) => {
 });
 
 // Get group details
-router.get('/:groupId', verifyToken, async (req: any, res: Response) => {
+router.get('/:groupId', verifyToken, authorizeGroupMember, async (req: any, res: Response) => {
   try {
     const { groupId } = req.params;
 
@@ -132,7 +133,7 @@ router.post('/', verifyToken, async (req: any, res: Response) => {
 });
 
 // Add member to group
-router.post('/:groupId/members', verifyToken, async (req: any, res: Response) => {
+router.post('/:groupId/members', verifyToken, authorizeGroupMember, async (req: any, res: Response) => {
   try {
     const { groupId } = req.params;
     const { username } = req.body;
