@@ -8,6 +8,7 @@
     "startCommand": "cd backend && node dist/index.js"
   },
   "env": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "ALLOW_DEMO_LOGIN": "true"
   }
 }
