@@ -5,6 +5,7 @@ services:
     plan: free
     region: oregon
     buildCommand: cd backend && npm install && npm run build
+    preDeployCommand: cd backend && node -e "require('dotenv').config(); console.log('Schema migration handled on app startup')"
     startCommand: cd backend && npm start
     envVars:
       - key: NODE_ENV

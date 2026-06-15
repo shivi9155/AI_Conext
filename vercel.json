@@ -5,5 +5,8 @@
       "src": "frontend/next.config.js",
       "use": "@vercel/next"
     }
-  ]
+  ],
+  "env": {
+    "NEXT_PUBLIC_API_URL": "https://fairshare-backend.onrender.com/api"
+  }
 }
